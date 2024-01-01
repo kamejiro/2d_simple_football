@@ -1546,6 +1546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 554156008}
+  - component: {fileID: 554156009}
   m_Layer: 0
   m_Name: GameUI
   m_TagString: Untagged
@@ -1569,14 +1570,38 @@ Transform:
   - {fileID: 313103861}
   - {fileID: 1207455484}
   - {fileID: 1427789710}
-  - {fileID: 4224121596689185977}
   - {fileID: 14347948}
   - {fileID: 215924155}
   - {fileID: 2079717102}
   - {fileID: 2127343966}
   - {fileID: 1373791300}
+  - {fileID: 4224121596689185977}
   m_Father: {fileID: 1685467270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &554156009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554156007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea89fe43db73c9543be6a6518047f8f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gametime: {fileID: 1906921951}
+  gamescore: {fileID: 1566313738}
+  TOTAL_STEP: 15
+  turn: 0
+  temp_step: 0
+  bp: 0
+  score1: 0
+  score2: 0
+  ap1: 0
+  dp1: 0
+  ap2: 0
+  dp2: 0
 --- !u!1 &591450179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,11 +2268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1000
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_LocalScale.x
@@ -2802,11 +2827,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1000
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_LocalScale.x
@@ -2989,6 +3014,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1566313738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
+  m_PrefabInstance: {fileID: 1207455483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1685467266
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,11 +3144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbe3a437075dc844975e6e8e5147019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFilePath: assets/Scripts/PlayerData/Liverpool.csv
-  player: {fileID: 9012724919414330082, guid: 6beaa1c2e0b80004897fd21bb5376030, type: 3}
-  team: {fileID: 3147916956372335967, guid: 53e4e528c19aa0845b8ab1396f4c4075, type: 3}
-  viewText: {fileID: 1342592152}
-  viewText2: {fileID: 354694923}
 --- !u!114 &1685467272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3404,6 +3435,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2bb81baeef7c5a4dac0c8212f5fa953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1906921951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
+  m_PrefabInstance: {fileID: 1427789709}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1917824930
@@ -4317,6 +4359,34 @@ PrefabInstance:
     - target: {fileID: 4741454550077811408, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Name
       value: NextButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 554156009}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: STEP_run
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game_system, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8948889880947448404, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Text
