@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class test2 : MonoBehaviour
+public class Menu : MonoBehaviour
 {
+    public Text team1, team2;
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 
-    public void OnButton1Click()
-    {
-    Debug.Log ("Hello");      
+    void team1_nameChange(){
+        team1.text="Aston";
     }
-
 }
-
