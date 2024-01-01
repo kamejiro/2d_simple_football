@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
-using JetBrains.Annotations;
-using Unity.VisualScripting.FullSerializer;
 
-public class ButtonTest : MonoBehaviour
+public class TeamList2 : MonoBehaviour
 {
     // CSVファイルのパスを指定
-    public string csvFilePath;
+    private string csvFilePath;
 
     // CSVデータを格納するリスト
     private List<List<string>> csvData = new List<List<string>>();
@@ -17,25 +15,30 @@ public class ButtonTest : MonoBehaviour
     public GameObject player;
     public GameObject team;
 
+    [SerializeField] private Dropdown dropdown;
     [SerializeField] Text viewText;
     [SerializeField] Text viewText2;
 
     private void Start()
     {
-        
+
         viewText.text = "";
         viewText2.text = "";
 
     }
 
-    public void OnClick()
+    public void OnClickDropDown()
     {
+        csvFilePath = "assets/scripts/PlayerData/" + dropdown.options[dropdown.value].text + ".csv";
+        Debug.Log(csvFilePath);
+
         // CSVファイル読み込み
         ReadCSVFile();
 
         // 読み込んだデータをコンソールに表示（デバッグ用）
         AttachCSVData();
     }
+
     void ReadCSVFile()
     {
         // CSVファイルが存在するか確認
@@ -66,7 +69,7 @@ public class ButtonTest : MonoBehaviour
         //チームデータの入力
         GameObject obj2 = Instantiate(team) as GameObject;
         TeamData teamData = obj2.GetComponent<TeamData>();
-        teamData.team_name = "Liverpool";
+        teamData.team_name = dropdown.options[dropdown.value].text;
         teamData.score = 0;
         teamData.Total_ATK = 0;
         teamData.Total_DEF = 0;
@@ -74,7 +77,7 @@ public class ButtonTest : MonoBehaviour
         foreach (var row in csvData)
         {
             //プレイヤーデータの入力
-            GameObject obj=Instantiate(player) as GameObject;
+            GameObject obj = Instantiate(player) as GameObject;
             MonsterData monsterData = obj.GetComponent<MonsterData>();
             monsterData.player_name = row[0];
             monsterData.position = row[1];
@@ -90,6 +93,7 @@ public class ButtonTest : MonoBehaviour
         }
         //チーム出力
         Debug.Log(teamData.team_name + "のscoreは" + teamData.score + "のatkは" + teamData.Total_ATK + "のdefは" + teamData.Total_DEF);
-        viewText2.text += teamData.team_name + " " + teamData.score;
+        viewText2.text += teamData.team_name + "\n\n";
     }
+
 }
