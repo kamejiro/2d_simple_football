@@ -985,6 +985,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348093819}
   m_CullTransparentMesh: 1
+--- !u!114 &354694923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
+  m_PrefabInstance: {fileID: 282451400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &383217476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,6 +2057,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
   m_PrefabInstance: {fileID: 1335779170}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1342592152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
+  m_PrefabInstance: {fileID: 1335779170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1396804924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2414,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   csvFilePath: assets/Scripts/PlayerData/Liverpool.csv
   player: {fileID: 9012724919414330082, guid: 6beaa1c2e0b80004897fd21bb5376030, type: 3}
-  viewText: {fileID: 1870934994}
+  team: {fileID: 3147916956372335967, guid: 53e4e528c19aa0845b8ab1396f4c4075, type: 3}
+  viewText: {fileID: 1342592152}
+  viewText2: {fileID: 354694923}
 --- !u!1001 &1724990168
 PrefabInstance:
   m_ObjectHideFlags: 0
