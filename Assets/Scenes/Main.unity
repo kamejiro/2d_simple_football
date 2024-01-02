@@ -1579,6 +1579,10 @@ MonoBehaviour:
   teamText2: {fileID: 1177965203}
   teamText3: {fileID: 1612715460}
   teamText4: {fileID: 1342592152}
+  asrc: {fileID: 554156010}
+  click_sound: {fileID: 8300000, guid: b5daf06e1bb80c9439d8eb199d2faacb, type: 3}
+  goal_sound: {fileID: 8300000, guid: c882f6e0ecf53b44c931f890ee163cf5, type: 3}
+  result_sound: {fileID: 8300000, guid: d2393228c959941499e2b9d6fe5e178a, type: 3}
 --- !u!82 &554156010
 AudioSource:
   m_ObjectHideFlags: 0

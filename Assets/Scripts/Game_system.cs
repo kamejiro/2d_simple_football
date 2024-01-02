@@ -34,8 +34,10 @@ public class Game_system : MonoBehaviour
     public Text teamText4;
 
     //音声
-    private AudioSource asrc;
-
+    [SerializeField]private AudioSource asrc;
+    [SerializeField]private AudioClip click_sound;
+    [SerializeField]private AudioClip goal_sound;
+    [SerializeField]private AudioClip result_sound;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +53,6 @@ public class Game_system : MonoBehaviour
         ap2=100;
         dp2=100;
 
-        asrc=GetComponent<AudioSource>();
         goalCelebration.enabled = false;
     }
 
@@ -64,7 +65,10 @@ public class Game_system : MonoBehaviour
     // 一定時間待機するコルーチン
     IEnumerator GoalTeam1()
     {
+        goalCelebration.enabled = true;
+        asrc.PlayOneShot(goal_sound);
         yield return new WaitForSeconds(1.0f);
+        goalCelebration.enabled = false;
         score1 =++score1;
         bp = 4;
         turn =1;
@@ -81,6 +85,7 @@ public class Game_system : MonoBehaviour
     IEnumerator GoalTeam2()
     {
         goalCelebration.enabled = true;
+        asrc.PlayOneShot(goal_sound);
         yield return new WaitForSeconds(1.0f);
         goalCelebration.enabled = false;
         score2 =++score2;
@@ -98,7 +103,7 @@ public class Game_system : MonoBehaviour
 
     IEnumerator ClickSound()
     {
-        asrc.PlayOneShot(asrc.clip);
+        asrc.PlayOneShot(click_sound);
         yield return new WaitForSeconds(0.1f);
     }
 
@@ -160,19 +165,19 @@ public class Game_system : MonoBehaviour
 
         }
         else if (temp_step==15){
-        temp_step=++temp_step;
-        gametime.text= "試合終了！";
-        nextButton_text.text="結果へ";
+            temp_step=++temp_step;
+            gametime.text= "試合終了！";
+            nextButton_text.text="結果へ";
         }
         else{
-        string temp_score1=score1.ToString();
-        string temp_score2=score2.ToString();
-        //得点表示への反映
-        gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
-        Debug.Log("結果表示");
-        gameUI.SetActive(false);
-        result_menu.SetActive(true);
-        DrawResultMember();
+            string temp_score1=score1.ToString();
+            string temp_score2=score2.ToString();
+            //得点表示への反映
+            gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
+            Debug.Log("結果表示");
+            gameUI.SetActive(false);
+            result_menu.SetActive(true);
+            DrawResultMember();
         }
     }
     public void DrawResultMember()
