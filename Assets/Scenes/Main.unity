@@ -1592,6 +1592,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gametime: {fileID: 1906921951}
   gamescore: {fileID: 1566313738}
+  nextButton: {fileID: 1897780641}
+  gameUI: {fileID: 1685467266}
+  result_menu: {fileID: 1685467266}
   TOTAL_STEP: 15
   turn: 0
   temp_step: 0
@@ -2899,7 +2902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_Text
-      value: "90\u5206\u7D4C\u904E"
+      value: "\u8A66\u5408\u958B\u59CB\uFF01"
       objectReference: {fileID: 0}
     - target: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -3435,6 +3438,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2bb81baeef7c5a4dac0c8212f5fa953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1897780641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8948889880947448404, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+  m_PrefabInstance: {fileID: 4224121596689185976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1906921951 stripped

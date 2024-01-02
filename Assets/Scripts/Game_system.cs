@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class Game_system : MonoBehaviour
 {
-    public Text gametime,gamescore;
+    public Text gametime,gamescore,nextButton;
+    public GameObject gameUI, result_menu;
 
     //初期条件
     public int TOTAL_STEP = 15;
@@ -27,7 +28,7 @@ public class Game_system : MonoBehaviour
     {
         //テスト用の値代入
         turn=0;
-        temp_step=1;
+        temp_step=0;
         bp=3;
         score1=0;
         score2=0;
@@ -56,15 +57,6 @@ public class Game_system : MonoBehaviour
         int randomNumber = random.Next(100);
         int result = (randomNumber < num_for_calc2) ? 1 : -1;
         bp = bp+result;
-
-        //Debug.Log(ap1);
-        //Debug.Log(ap2);
-        //Debug.Log(dp1);
-        //Debug.Log(dp2);
-
-        Debug.Log(num_for_calc1);
-        Debug.Log(num_for_calc2);
-        Debug.Log(randomNumber);
 
 
         //攻守交替の処理
@@ -98,16 +90,28 @@ public class Game_system : MonoBehaviour
 
     public void STEP_run()
     {
+        if (temp_step<15){
         bp=step_calc(bp, ap1, dp1, ap2, dp2);
         temp_step=++temp_step;
         Debug.Log(bp);
         string temp_time=(temp_step*6).ToString();
         string temp_score1=score1.ToString();
         string temp_score2=score2.ToString();
-        
         //グラフィックの処理
         gamescore.text= temp_score1 + " - " + temp_score2;
         gametime.text= temp_time+ "分経過";
+        }
+        else if (temp_step==15){
+        temp_step=++temp_step;
+        gametime.text= "試合終了！";
+        nextButton.text="結果へ";
+        }
+        else{
+        Debug.Log("結果表示");
+        gameUI.SetActive(false);
+        result_menu.SetActive(true);
+        }
+
     }
 
 }
