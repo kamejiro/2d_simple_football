@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Game_system : MonoBehaviour
 {
-    public Text gametime,gamescore,nextButton_text;
+    public Text gametime,gamescore,nextButton_text,gamescore_resultMenu;
     public Button nextButton;
     public GameObject gameUI, result_menu;
     public RectTransform soccer_ball;
@@ -149,6 +149,10 @@ public class Game_system : MonoBehaviour
         nextButton_text.text="結果へ";
         }
         else{
+        string temp_score1=score1.ToString();
+        string temp_score2=score2.ToString();
+        //得点表示への反映
+        gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
         Debug.Log("結果表示");
         gameUI.SetActive(false);
         result_menu.SetActive(true);
