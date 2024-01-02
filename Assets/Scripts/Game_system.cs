@@ -59,17 +59,17 @@ public class Game_system : MonoBehaviour
         dp2=100;
 
 
-        ap1=calc_data_reference.calc_ap1;
-        dp1=calc_data_reference.calc_dp1;
-        ap2=calc_data_reference.calc_ap2;
-        dp2=calc_data_reference.calc_ap2; 
+        //ap1=calc_data_reference.calc_ap1;
+        //dp1=calc_data_reference.calc_dp1;
+        //ap2=calc_data_reference.calc_ap2;
+        //dp2=calc_data_reference.calc_ap2; 
 
-        ScriptA scriptAReference = GetComponent<ScriptA>();
-        if (scriptAReference != null)
-        {
-            int valueFromScriptA = scriptAReference.myVariable;
-            Debug.Log(valueFromScriptA);
-        }
+        //ScriptA scriptAReference = GetComponent<ScriptA>();
+        //if (scriptAReference != null)
+        //{
+        //    int valueFromScriptA = scriptAReference.myVariable;
+        //    Debug.Log(valueFromScriptA);
+        //}
  
 
         goalCelebration.enabled = false;
@@ -123,6 +123,11 @@ public class Game_system : MonoBehaviour
     IEnumerator ClickSound()
     {
         asrc.PlayOneShot(click_sound);
+        yield return new WaitForSeconds(0.1f);
+    }
+    IEnumerator ResultSound()
+    {
+        asrc.PlayOneShot(result_sound);
         yield return new WaitForSeconds(0.1f);
     }
 
@@ -186,6 +191,7 @@ public class Game_system : MonoBehaviour
 
         }
         else if (temp_step==15){
+            StartCoroutine(ResultSound());
             temp_step=++temp_step;
             gametime.text= "試合終了！";
             nextButton_text.text="結果へ";

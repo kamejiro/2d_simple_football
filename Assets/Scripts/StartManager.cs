@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,10 @@ public class StartManager : MonoBehaviour
     public GameObject gameUI;
     public GameObject resultUI;
     private AudioSource asrc;
+    [SerializeField] Dropdown dropdown;
+    [SerializeField] Dropdown dropdown2;
+    [SerializeField] Text message;
+    
 
     private void Start()
     {
@@ -29,7 +34,15 @@ public class StartManager : MonoBehaviour
     }
     public void OnClickStart()
     {
-        StartCoroutine("StartButton");
+        if ((dropdown.options[dropdown.value].text=="選択してください") || (dropdown2.options[dropdown2.value].text == "選択してください"))
+        {
+            message.text = "チームを選択してください";
+        }
+        else
+        {
+            StartCoroutine("StartButton");
+        }
+
     }
 
 
