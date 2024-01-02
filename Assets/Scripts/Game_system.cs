@@ -10,6 +10,7 @@ public class Game_system : MonoBehaviour
     public Button nextButton;
     public GameObject gameUI, result_menu;
     public RectTransform soccer_ball;
+    public Image goalCelebration;
 
     //初期条件
     public int TOTAL_STEP = 15;
@@ -32,6 +33,9 @@ public class Game_system : MonoBehaviour
     public Text teamText3;
     public Text teamText4;
 
+    //音声
+    private AudioSource asrc;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,9 @@ public class Game_system : MonoBehaviour
         dp1=100;
         ap2=100;
         dp2=100;
+
+        asrc=GetComponent<AudioSource>();
+        goalCelebration.enabled = false;
     }
 
     public void ballPosi(int __bollpositon){
@@ -73,7 +80,9 @@ public class Game_system : MonoBehaviour
 
     IEnumerator GoalTeam2()
     {
+        goalCelebration.enabled = true;
         yield return new WaitForSeconds(1.0f);
+        goalCelebration.enabled = false;
         score2 =++score2;
         bp = 3;
         turn =0;
@@ -85,6 +94,12 @@ public class Game_system : MonoBehaviour
         gamescore.text= temp_score1 + " - " + temp_score2;
         nextButton.interactable = true;
 
+    }
+
+    IEnumerator ClickSound()
+    {
+        asrc.PlayOneShot(asrc.clip);
+        yield return new WaitForSeconds(0.1f);
     }
 
     public int step_calc(int bp,int ap1,int dp1,int ap2,int dp2){ 
@@ -135,6 +150,7 @@ public class Game_system : MonoBehaviour
 
     public void STEP_run()
     {
+        StartCoroutine(ClickSound());
         if (temp_step<15){
         bp=step_calc(bp, ap1, dp1, ap2, dp2);
         temp_step=++temp_step;
