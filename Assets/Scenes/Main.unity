@@ -1594,7 +1594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gametime: {fileID: 1906921951}
   gamescore: {fileID: 1566313738}
-  nextButton: {fileID: 1897780641}
+  nextButton_text: {fileID: 1897780641}
+  nextButton: {fileID: 4224121596689185978}
   gameUI: {fileID: 554156007}
   result_menu: {fileID: 45189288}
   soccer_ball: {fileID: 1373791300}
@@ -4775,6 +4776,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9107060477722241364, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
   m_PrefabInstance: {fileID: 4224121596689185976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4224121596689185978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+  m_PrefabInstance: {fileID: 4224121596689185976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

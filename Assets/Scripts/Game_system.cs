@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class Game_system : MonoBehaviour
 {
-    public Text gametime,gamescore,nextButton;
+    public Text gametime,gamescore,nextButton_text;
+    public Button nextButton;
     public GameObject gameUI, result_menu;
     public RectTransform soccer_ball;
 
@@ -58,6 +59,8 @@ public class Game_system : MonoBehaviour
         string temp_score2=score2.ToString();
         //得点表示への反映
         gamescore.text= temp_score1 + " - " + temp_score2;
+        nextButton.interactable = true;
+
     }
 
     IEnumerator GoalTeam2()
@@ -72,6 +75,8 @@ public class Game_system : MonoBehaviour
         string temp_score2=score2.ToString();
         //得点表示への反映
         gamescore.text= temp_score1 + " - " + temp_score2;
+        nextButton.interactable = true;
+
     }
 
     public int step_calc(int bp,int ap1,int dp1,int ap2,int dp2){ 
@@ -109,15 +114,13 @@ public class Game_system : MonoBehaviour
 
         //得点処理
         if (bp == 6){
+            nextButton.interactable = false;
             StartCoroutine(GoalTeam1());
 
         }
         else if(bp==1){
-            score2 =++score2;
-            bp = 3;
-            turn =0;
-            Debug.Log("Team2のゴール!!");
-            ballPosi(bp);
+            nextButton.interactable = false;
+            StartCoroutine(GoalTeam2());
         }
         return bp;
     }
@@ -135,7 +138,7 @@ public class Game_system : MonoBehaviour
         else if (temp_step==15){
         temp_step=++temp_step;
         gametime.text= "試合終了！";
-        nextButton.text="結果へ";
+        nextButton_text.text="結果へ";
         }
         else{
         Debug.Log("結果表示");
