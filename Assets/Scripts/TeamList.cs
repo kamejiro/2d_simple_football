@@ -12,7 +12,6 @@ public class TeamList : MonoBehaviour
     // CSV�f�[�^���i�[���郊�X�g
     private List<List<string>> csvData = new List<List<string>>();
 
-
     //gameUIで計算するためのクラスcalc_dataに値代入
     public calc_data calc_data_reference;
     
@@ -104,11 +103,6 @@ public class TeamList : MonoBehaviour
         //gameUIで計算するためのクラスcalc_dataに値代入
         calc_data_reference.calc_ap1=teamData.Total_ATK;
         calc_data_reference.calc_dp1=teamData.Total_DEF;
-    }
-
-    public  void inputing()
-    {
-
     }
 
 }

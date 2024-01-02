@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class calc_data : MonoBehaviour
 {
-    public int calc_ap1, calc_dp1;
+    public int calc_ap1, calc_dp1, calc_ap2, calc_dp2;
 }

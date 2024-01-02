@@ -1561,6 +1561,7 @@ MonoBehaviour:
   result_menu: {fileID: 45189288}
   soccer_ball: {fileID: 1373791300}
   goalCelebration: {fileID: 229872576}
+  calc_data_reference: {fileID: 1685467275}
   TOTAL_STEP: 15
   turn: 0
   temp_step: 0
@@ -3471,6 +3472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calc_ap1: 0
   calc_dp1: 0
+  calc_ap2: 0
+  calc_dp2: 0
 --- !u!4 &1644320146
 Transform:
   m_ObjectHideFlags: 0
@@ -3650,6 +3653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ba57329328c7f459af6ba9e0d25eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  calc_data_reference: {fileID: 1685467275}
   player: {fileID: 9012724919414330082, guid: 6beaa1c2e0b80004897fd21bb5376030, type: 3}
   team: {fileID: 3147916956372335967, guid: 53e4e528c19aa0845b8ab1396f4c4075, type: 3}
   dropdown: {fileID: 771341803}
@@ -3683,6 +3687,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   calc_ap1: 0
   calc_dp1: 0
+  calc_ap2: 0
+  calc_dp2: 0
 --- !u!1001 &1724990168
 PrefabInstance:
   m_ObjectHideFlags: 0

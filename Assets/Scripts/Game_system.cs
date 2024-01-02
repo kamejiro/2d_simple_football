@@ -12,6 +12,10 @@ public class Game_system : MonoBehaviour
     public RectTransform soccer_ball;
     public Image goalCelebration;
 
+    //gameUIで計算するためのクラスcalc_dataに値代入
+    public calc_data calc_data_reference;
+
+
     //初期条件
     public int TOTAL_STEP = 15;
 
@@ -48,10 +52,25 @@ public class Game_system : MonoBehaviour
         bp=3;
         score1=0;
         score2=0;
+
         ap1=100;
         dp1=100;
         ap2=100;
         dp2=100;
+
+
+        ap1=calc_data_reference.calc_ap1;
+        dp1=calc_data_reference.calc_dp1;
+        ap2=calc_data_reference.calc_ap2;
+        dp2=calc_data_reference.calc_ap2; 
+
+        ScriptA scriptAReference = GetComponent<ScriptA>();
+        if (scriptAReference != null)
+        {
+            int valueFromScriptA = scriptAReference.myVariable;
+            Debug.Log(valueFromScriptA);
+        }
+ 
 
         goalCelebration.enabled = false;
     }
@@ -155,6 +174,8 @@ public class Game_system : MonoBehaviour
 
     public void STEP_run()
     {
+        Debug.Log(calc_data_reference.calc_ap1);
+
         StartCoroutine(ClickSound());
         if (temp_step<15){
         bp=step_calc(bp, ap1, dp1, ap2, dp2);
