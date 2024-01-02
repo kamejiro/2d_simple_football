@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class TeamList2 : MonoBehaviour
 {
-    // CSVƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğw’è
+    // CSVï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒpï¿½Xï¿½ï¿½ï¿½wï¿½ï¿½
     private string csvFilePath;
 
-    // CSVƒf[ƒ^‚ğŠi”[‚·‚éƒŠƒXƒg
+    // CSVï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½éƒŠï¿½Xï¿½g
     private List<List<string>> csvData = new List<List<string>>();
 
     public GameObject player;
@@ -32,41 +32,41 @@ public class TeamList2 : MonoBehaviour
         csvFilePath = "assets/scripts/PlayerData/" + dropdown.options[dropdown.value].text + ".csv";
         Debug.Log(csvFilePath);
 
-        // CSVƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+        // CSVï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
         ReadCSVFile();
 
-        // “Ç‚İ‚ñ‚¾ƒf[ƒ^‚ğƒRƒ“ƒ\[ƒ‹‚É•\¦iƒfƒoƒbƒO—pj
+        // ï¿½Ç‚İï¿½ï¿½ñ‚¾ƒfï¿½[ï¿½^ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½\ï¿½[ï¿½ï¿½ï¿½É•\ï¿½ï¿½ï¿½iï¿½fï¿½oï¿½bï¿½Oï¿½pï¿½j
         AttachCSVData();
     }
 
     void ReadCSVFile()
     {
-        // CSVƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©Šm”F
+        // CSVï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚©ï¿½mï¿½F
         if (File.Exists(csvFilePath))
         {
-            // CSVƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ
+            // CSVï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
             using (StreamReader reader = new StreamReader(csvFilePath))
             {
                 while (!reader.EndOfStream)
                 {
-                    // ˆês“Ç‚İ‚İAƒJƒ“ƒ}‚Å•ªŠ„‚µ‚ÄƒŠƒXƒg‚É’Ç‰Á
+                    // ï¿½ï¿½sï¿½Ç‚İï¿½ï¿½İAï¿½Jï¿½ï¿½ï¿½}ï¿½Å•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äƒï¿½ï¿½Xï¿½gï¿½É’Ç‰ï¿½
                     string line = reader.ReadLine();
                     List<string> row = new List<string>(line.Split(','));
 
-                    // “Ç‚İ‚ñ‚¾s‚ğƒŠƒXƒg‚É’Ç‰Á
+                    // ï¿½Ç‚İï¿½ï¿½ñ‚¾sï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½É’Ç‰ï¿½
                     csvData.Add(row);
                 }
             }
         }
         else
         {
-            Debug.LogError("CSVƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ: " + csvFilePath);
+            Debug.LogError("CSVï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½: " + csvFilePath);
         }
     }
 
     void AttachCSVData()
     {
-        //ƒ`[ƒ€ƒf[ƒ^‚Ì“ü—Í
+        //ï¿½`ï¿½[ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ì“ï¿½ï¿½ï¿½
         GameObject obj2 = Instantiate(team) as GameObject;
         TeamData teamData = obj2.GetComponent<TeamData>();
         teamData.team_name = dropdown.options[dropdown.value].text;
@@ -76,7 +76,7 @@ public class TeamList2 : MonoBehaviour
 
         foreach (var row in csvData)
         {
-            //ƒvƒŒƒCƒ„[ƒf[ƒ^‚Ì“ü—Í
+            //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½fï¿½[ï¿½^ï¿½Ì“ï¿½ï¿½ï¿½
             GameObject obj = Instantiate(player) as GameObject;
             MonsterData monsterData = obj.GetComponent<MonsterData>();
             monsterData.player_name = row[0];
@@ -87,13 +87,12 @@ public class TeamList2 : MonoBehaviour
             teamData.Total_ATK += int.Parse(row[2]);
             teamData.Total_DEF += int.Parse(row[3]);
 
-            //ƒvƒŒƒCƒ„[o—Í
-            Debug.Log(monsterData.player_name + "‚Ìpos‚Í" + monsterData.position + "‚Ìatk‚Í" + monsterData.ATK + "‚Ìdef‚Í" + monsterData.DEF);
+            //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½
+            Debug.Log(monsterData.player_name + "ï¿½ï¿½posï¿½ï¿½" + monsterData.position + "ï¿½ï¿½atkï¿½ï¿½" + monsterData.ATK + "ï¿½ï¿½defï¿½ï¿½" + monsterData.DEF);
             viewText.text += monsterData.position + " " + monsterData.player_name + "\n";
         }
-        //ƒ`[ƒ€o—Í
-        Debug.Log(teamData.team_name + "‚Ìscore‚Í" + teamData.score + "‚Ìatk‚Í" + teamData.Total_ATK + "‚Ìdef‚Í" + teamData.Total_DEF);
-        viewText2.text += teamData.team_name + "\n\n";
+        //ï¿½`ï¿½[ï¿½ï¿½ï¿½oï¿½ï¿½
+        Debug.Log(teamData.team_name + "ï¿½ï¿½scoreï¿½ï¿½" + teamData.score + "ï¿½ï¿½atkï¿½ï¿½" + teamData.Total_ATK + "ï¿½ï¿½defï¿½ï¿½" + teamData.Total_DEF);
     }
 
 }

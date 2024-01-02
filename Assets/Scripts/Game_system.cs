@@ -8,6 +8,7 @@ public class Game_system : MonoBehaviour
 {
     public Text gametime,gamescore,nextButton;
     public GameObject gameUI, result_menu;
+    public RectTransform soccer_ball;
 
     //初期条件
     public int TOTAL_STEP = 15;
@@ -38,11 +39,44 @@ public class Game_system : MonoBehaviour
         dp2=100;
     }
 
+    public void ballPosi(int __bollpositon){
+    //ボールの処理
+        int temp_bp=(__bollpositon *140)-450;
+        soccer_ball.localPosition =new Vector3(temp_bp, -20,0);
+    }
 
+    // 一定時間待機するコルーチン
+    IEnumerator GoalTeam1()
+    {
+        yield return new WaitForSeconds(1.0f);
+        score1 =++score1;
+        bp = 4;
+        turn =1;
+        ballPosi(bp);
+        Debug.Log("Finished Waiting");
+        string temp_score1=score1.ToString();
+        string temp_score2=score2.ToString();
+        //得点表示への反映
+        gamescore.text= temp_score1 + " - " + temp_score2;
+    }
+
+    IEnumerator GoalTeam2()
+    {
+        yield return new WaitForSeconds(1.0f);
+        score2 =++score2;
+        bp = 3;
+        turn =0;
+        Debug.Log("Team1のゴール!!");
+        ballPosi(bp);
+        string temp_score1=score1.ToString();
+        string temp_score2=score2.ToString();
+        //得点表示への反映
+        gamescore.text= temp_score1 + " - " + temp_score2;
+    }
 
     public int step_calc(int bp,int ap1,int dp1,int ap2,int dp2){ 
         
-        //乱数処理
+        //攻撃/(攻撃+守備)の処理
         double num_for_calc1;
         int num_for_calc2;
         if (turn==0){
@@ -57,6 +91,7 @@ public class Game_system : MonoBehaviour
         int randomNumber = random.Next(100);
         int result = (randomNumber < num_for_calc2) ? 1 : -1;
         bp = bp+result;
+        ballPosi(bp);
 
 
         //攻守交替の処理
@@ -74,16 +109,15 @@ public class Game_system : MonoBehaviour
 
         //得点処理
         if (bp == 6){
-            score1 =++score1;
-            bp = 4;
-            turn =1;
-            Debug.Log("Team1のゴール!!");
+            StartCoroutine(GoalTeam1());
+
         }
         else if(bp==1){
             score2 =++score2;
             bp = 3;
             turn =0;
             Debug.Log("Team2のゴール!!");
+            ballPosi(bp);
         }
         return bp;
     }
@@ -93,13 +127,10 @@ public class Game_system : MonoBehaviour
         if (temp_step<15){
         bp=step_calc(bp, ap1, dp1, ap2, dp2);
         temp_step=++temp_step;
-        Debug.Log(bp);
         string temp_time=(temp_step*6).ToString();
-        string temp_score1=score1.ToString();
-        string temp_score2=score2.ToString();
-        //グラフィックの処理
-        gamescore.text= temp_score1 + " - " + temp_score2;
+
         gametime.text= temp_time+ "分経過";
+
         }
         else if (temp_step==15){
         temp_step=++temp_step;
@@ -111,7 +142,6 @@ public class Game_system : MonoBehaviour
         gameUI.SetActive(false);
         result_menu.SetActive(true);
         }
-
     }
 
 }
