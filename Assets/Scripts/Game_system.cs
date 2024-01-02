@@ -22,8 +22,16 @@ public class Game_system : MonoBehaviour
     public int ap1, dp1;//team1の攻撃、守備ポイント
     public int ap2, dp2;//team2の攻撃、守備ポイント
 
+    //結果に使うチームテキスト
+    public Text teamName;
+    public Text teamName2;
+    public Text teamName3;
+    public Text teamName4;
+    public Text teamText;
+    public Text teamText2;
+    public Text teamText3;
+    public Text teamText4;
 
- 
 
     // Start is called before the first frame update
     void Start()
@@ -144,7 +152,15 @@ public class Game_system : MonoBehaviour
         Debug.Log("結果表示");
         gameUI.SetActive(false);
         result_menu.SetActive(true);
+        DrawResultMember();
         }
+    }
+    public void DrawResultMember()
+    {
+        teamName.text = teamName2.text;
+        teamName3.text = teamName4.text;
+        teamText.text = teamText2.text;
+        teamText3.text = teamText4.text;
     }
 
 }

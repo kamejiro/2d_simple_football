@@ -70,6 +70,7 @@ public class TeamList2 : MonoBehaviour
         GameObject obj2 = Instantiate(team) as GameObject;
         TeamData teamData = obj2.GetComponent<TeamData>();
         teamData.team_name = dropdown.options[dropdown.value].text;
+        teamData.name = dropdown.options[dropdown.value].text;
         teamData.score = 0;
         teamData.Total_ATK = 0;
         teamData.Total_DEF = 0;
@@ -80,6 +81,7 @@ public class TeamList2 : MonoBehaviour
             GameObject obj = Instantiate(player) as GameObject;
             MonsterData monsterData = obj.GetComponent<MonsterData>();
             monsterData.player_name = row[0];
+            monsterData.name = row[0];
             monsterData.position = row[1];
             monsterData.ATK = int.Parse(row[2]);
             monsterData.DEF = int.Parse(row[3]);
@@ -93,6 +95,7 @@ public class TeamList2 : MonoBehaviour
         }
         //�`�[���o��
         Debug.Log(teamData.team_name + "��score��" + teamData.score + "��atk��" + teamData.Total_ATK + "��def��" + teamData.Total_DEF);
+        viewText2.text = teamData.team_name;
     }
 
 }
