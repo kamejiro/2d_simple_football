@@ -1325,9 +1325,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: test, Assembly-CSharp
-        m_MethodName: OnButton1Click
+      - m_Target: {fileID: 1895805957}
+        m_TargetAssemblyTypeName: Team_Cancel_Button, Assembly-CSharp
+        m_MethodName: ResetGameVaruable
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3523,7 +3523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed982a696d5d0514d8635bfc3ed7d960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  calc_data_reference: {fileID: 1644320145}
 --- !u!1 &1685467266
 GameObject:
   m_ObjectHideFlags: 0
@@ -4032,6 +4031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1895805955}
   - component: {fileID: 1895805956}
+  - component: {fileID: 1895805957}
   m_Layer: 0
   m_Name: Start
   m_TagString: Untagged
@@ -4076,6 +4076,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2bb81baeef7c5a4dac0c8212f5fa953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1895805957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895805954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d17f5f1768d5949b2115c6f93726b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: {fileID: 489127418}
+  dropdown2: {fileID: 771341803}
 --- !u!114 &1897780641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8948889880947448404, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
@@ -4185,6 +4199,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1685467274}
         m_TargetAssemblyTypeName: switch_canvas, Assembly-CSharp
         m_MethodName: OnClick_to_StartMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1895805957}
+        m_TargetAssemblyTypeName: Team_Cancel_Button, Assembly-CSharp
+        m_MethodName: ResetGameVaruable
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

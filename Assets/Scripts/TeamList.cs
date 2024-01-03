@@ -41,6 +41,7 @@ public class TeamList : MonoBehaviour
 
     void ReadCSVFile()
     {
+        csvData.Clear();
         // CSV�t�@�C�������݂��邩�m�F
         if (File.Exists(csvFilePath))
         {
@@ -66,10 +67,14 @@ public class TeamList : MonoBehaviour
 
     void AttachCSVData()
     {
+        DeletePlayer1();
+        viewText.text = "";
+        viewText2.text = "";
         //�`�[���f�[�^�̓���
         GameObject obj2 = Instantiate(team) as GameObject;
         TeamData teamData = obj2.GetComponent<TeamData>();
         teamData.team_name = dropdown.options[dropdown.value].text;
+        teamData.gameObject.tag = "team1";
         teamData.name= dropdown.options[dropdown.value].text;
         teamData.score = 0;
         teamData.Total_ATK = 0;
@@ -81,6 +86,7 @@ public class TeamList : MonoBehaviour
             GameObject obj = Instantiate(player) as GameObject;
             MonsterData monsterData = obj.GetComponent<MonsterData>();
             monsterData.player_name = row[0];
+            monsterData.gameObject.tag = "player1";
             monsterData.name = row[0];
             monsterData.position = row[1];
             monsterData.ATK = int.Parse(row[2]);
@@ -103,4 +109,14 @@ public class TeamList : MonoBehaviour
         calc_deta.DP1=teamData.Total_DEF;
     }
 
+    public void DeletePlayer1()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("player1");
+        GameObject delete_team = GameObject.FindGameObjectWithTag("team1");
+        Destroy(delete_team);
+        foreach (GameObject player in players)
+        {
+            Destroy(player);
+        }
+    }
 }
