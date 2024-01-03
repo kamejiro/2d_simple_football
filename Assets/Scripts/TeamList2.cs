@@ -11,9 +11,6 @@ public class TeamList2 : MonoBehaviour
 
     // CSV�f�[�^���i�[���郊�X�g
     private List<List<string>> csvData = new List<List<string>>();
-    
-    //gameUIで計算するためのクラスcalc_dataに値代入
-    public calc_data calc_data_reference; 
 
     public GameObject player;
     public GameObject team;
@@ -111,9 +108,10 @@ public class TeamList2 : MonoBehaviour
         Debug.Log(teamData.team_name + "��score��" + teamData.score + "��atk��" + teamData.Total_ATK + "��def��" + teamData.Total_DEF);
         viewText2.text = teamData.team_name;
 
-        //gameUIで計算するためのクラスcalc_dataに値代入
-        calc_data_reference.calc_ap2=teamData.Total_ATK;
-        calc_data_reference.calc_dp2=teamData.Total_DEF;
+        //gameUIで計算するために値代入
+        Calc_Deta calc_deta = GetComponent<Calc_Deta>();
+        calc_deta.AP2=teamData.Total_ATK;
+        calc_deta.DP2=teamData.Total_DEF;
     }
 
     private void ValueChanged(int value)
