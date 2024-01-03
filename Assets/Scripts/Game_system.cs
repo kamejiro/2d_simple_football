@@ -15,7 +15,6 @@ public class Game_system : MonoBehaviour
     //gameUIで計算するためのクラスcalc_dataに値代入
     public calc_data calc_data_reference;
 
-
     //初期条件
     public int TOTAL_STEP = 15;
 
@@ -27,7 +26,7 @@ public class Game_system : MonoBehaviour
     public int ap1, dp1;//team1の攻撃、守備ポイント
     public int ap2, dp2;//team2の攻撃、守備ポイント
 
-    //結果に使うチームテキスト
+    //結果表示に使うチームテキスト
     public Text teamName;
     public Text teamName2;
     public Text teamName3;
@@ -204,6 +203,7 @@ public class Game_system : MonoBehaviour
             Debug.Log("結果表示");
             gameUI.SetActive(false);
             result_menu.SetActive(true);
+            ResetGameVaruable();
             DrawResultMember();
         }
     }
@@ -213,6 +213,22 @@ public class Game_system : MonoBehaviour
         teamName3.text = teamName4.text;
         teamText.text = teamText2.text;
         teamText3.text = teamText4.text;
+    }
+
+    public void ResetGameVaruable()
+    {
+        turn = 0;
+        temp_step = 0;
+        bp = 3;
+        score1 = 0;
+        score2 = 0;
+        gametime.text = "試合開始";
+        gamescore.text = score1 + " - " + score2;
+        Debug.Log("現在のturn" + turn + "\n");
+        Debug.Log("現在のtemp_step" + temp_step + "\n");
+        Debug.Log("現在のbp" + bp + "\n");
+        Debug.Log("現在のscore1は" + score1 + "\n");
+        Debug.Log("現在のscore2は" + score2 + "\n");
     }
 
 }

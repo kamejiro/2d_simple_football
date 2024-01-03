@@ -5,17 +5,6 @@ using UnityEngine;
 public class switch_canvas : MonoBehaviour
 {
     public GameObject start_menu, result;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnClick_to_Result()
     {
@@ -25,8 +14,7 @@ public class switch_canvas : MonoBehaviour
 
     public void OnClick_to_StartMenu()
     {
-    start_menu.SetActive(true);
-    result.SetActive(false);
+        start_menu.SetActive(true);
+        result.SetActive(false);
     }
-
 }

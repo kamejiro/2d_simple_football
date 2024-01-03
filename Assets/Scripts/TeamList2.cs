@@ -21,13 +21,14 @@ public class TeamList2 : MonoBehaviour
     [SerializeField] private Dropdown dropdown;
     [SerializeField] Text viewText;
     [SerializeField] Text viewText2;
-
+    private List<GameObject> playerList = new List<GameObject>();
+    private int valueChangeCount = 0;
     private void Start()
     {
 
         viewText.text = "";
         viewText2.text = "";
-
+        dropdown.onValueChanged.AddListener(ValueChanged);
     }
 
     public void OnClickDropDown()
@@ -39,11 +40,17 @@ public class TeamList2 : MonoBehaviour
         ReadCSVFile();
 
         // �ǂݍ��񂾃f�[�^���R���\�[���ɕ\���i�f�o�b�O�p�j
+        playerList.Clear();
+        Debug.Log(playerList.Count);
         AttachCSVData();
     }
 
     void ReadCSVFile()
     {
+        if(csvData.Count > 0)
+        {
+            csvData.Clear();
+        }
         // CSV�t�@�C�������݂��邩�m�F
         if (File.Exists(csvFilePath))
         {
@@ -69,8 +76,12 @@ public class TeamList2 : MonoBehaviour
 
     void AttachCSVData()
     {
-        //�`�[���f�[�^�̓���
+        if (playerList.Count > 0)
+        {
+            playerList.Clear();
+        }
         GameObject obj2 = Instantiate(team) as GameObject;
+        playerList.Add(obj2);
         TeamData teamData = obj2.GetComponent<TeamData>();
         teamData.team_name = dropdown.options[dropdown.value].text;
         teamData.name = dropdown.options[dropdown.value].text;
@@ -80,8 +91,8 @@ public class TeamList2 : MonoBehaviour
 
         foreach (var row in csvData)
         {
-            //�v���C���[�f�[�^�̓���
             GameObject obj = Instantiate(player) as GameObject;
+            playerList.Add(obj);
             MonsterData monsterData = obj.GetComponent<MonsterData>();
             monsterData.player_name = row[0];
             monsterData.name = row[0];
@@ -103,6 +114,20 @@ public class TeamList2 : MonoBehaviour
         //gameUIで計算するためのクラスcalc_dataに値代入
         calc_data_reference.calc_ap2=teamData.Total_ATK;
         calc_data_reference.calc_dp2=teamData.Total_DEF;
+    }
+
+    private void ValueChanged(int value)
+    {
+        valueChangeCount++;
+        if (value >= 2)
+        {
+            foreach (var player in playerList)
+            {
+                Destroy(player);
+            }
+            valueChangeCount = 0;
+        }
+        Debug.Log("値が変わりました");
     }
 
 }
