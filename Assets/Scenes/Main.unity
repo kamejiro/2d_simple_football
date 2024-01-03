@@ -1856,11 +1856,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.data[3].m_Text
       value: AstonVilla
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[4].m_Text
+      value: ManchesterUnited
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5164,11 +5168,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.data[3].m_Text
       value: AstonVilla
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[4].m_Text
+      value: ManchesterUnited
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
