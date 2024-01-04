@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -6,22 +6,23 @@ using UnityEngine.UI;
 
 public class TeamList : MonoBehaviour
 {
-    // CSV�t�@�C���̃p�X���w��
+    //CSVファイルへのパス
     private string csvFilePath;
 
-    // CSV�f�[�^���i�[���郊�X�g
+    //ファイルを読み込む際に使用するリスト
     private List<List<string>> csvData = new List<List<string>>();
     
+    //プレハブ
     public GameObject player;
     public GameObject team;
 
+    //ドロップダウンとテキスト
     [SerializeField] private Dropdown dropdown;
     [SerializeField] Text viewText;
     [SerializeField] Text viewText2;
 
     private void Start()
     {
-
         viewText.text = "";
         viewText2.text = "";
 
@@ -32,45 +33,43 @@ public class TeamList : MonoBehaviour
         csvFilePath= "assets/scripts/PlayerData/" + dropdown.options[dropdown.value].text + ".csv";
         Debug.Log(csvFilePath);
 
-        // CSV�t�@�C���ǂݍ���
         ReadCSVFile();
 
-        // �ǂݍ��񂾃f�[�^���R���\�[���ɕ\���i�f�o�b�O�p�j
         AttachCSVData();
     }
 
+    //CSVファイルを読み込む
     void ReadCSVFile()
     {
         csvData.Clear();
-        // CSV�t�@�C�������݂��邩�m�F
+        //ファイルが存在したら
         if (File.Exists(csvFilePath))
         {
-            // CSV�t�@�C����ǂݍ���
+            //1行ずつ読み込む
             using (StreamReader reader = new StreamReader(csvFilePath))
             {
                 while (!reader.EndOfStream)
                 {
-                    // ��s�ǂݍ��݁A�J���}�ŕ������ă��X�g�ɒǉ�
+                    //コンマ、行ごとにリストに追加
                     string line = reader.ReadLine();
                     List<string> row = new List<string>(line.Split(','));
-
-                    // �ǂݍ��񂾍s�����X�g�ɒǉ�
                     csvData.Add(row);
                 }
             }
         }
         else
         {
-            Debug.LogError("CSV�t�@�C����������܂���: " + csvFilePath);
+            Debug.LogError("CSVファイルの読み込みに失敗しました" + csvFilePath);
         }
     }
 
+    //オブジェクトにCSVファイルを割り当てる
     void AttachCSVData()
     {
         DeletePlayer1();
         viewText.text = "";
         viewText2.text = "";
-        //�`�[���f�[�^�̓���
+        //チームの割り当て
         GameObject obj2 = Instantiate(team) as GameObject;
         TeamData teamData = obj2.GetComponent<TeamData>();
         teamData.team_name = dropdown.options[dropdown.value].text;
@@ -82,7 +81,7 @@ public class TeamList : MonoBehaviour
 
         foreach (var row in csvData)
         {
-            //�v���C���[�f�[�^�̓���
+            //選手の割り当て
             GameObject obj = Instantiate(player) as GameObject;
             MonsterData monsterData = obj.GetComponent<MonsterData>();
             monsterData.player_name = row[0];
@@ -95,12 +94,12 @@ public class TeamList : MonoBehaviour
             teamData.Total_ATK += int.Parse(row[2]);
             teamData.Total_DEF += int.Parse(row[3]);
 
-            //�v���C���[�o��
-            Debug.Log(monsterData.player_name + "��pos��" + monsterData.position + "��atk��" + monsterData.ATK + "��def��" + monsterData.DEF);
+            //選手ログの出力
+            Debug.Log(monsterData.player_name + "のposは" + monsterData.position + "のatkは" + monsterData.ATK + "のdefは" + monsterData.DEF);
             viewText.text += monsterData.position + " " + monsterData.player_name + "\n";
         }
-        //�`�[���o��
-        Debug.Log(teamData.team_name + "��score��" + teamData.score + "��atk��" + teamData.Total_ATK + "��def��" + teamData.Total_DEF);
+        //チームログの出力
+        Debug.Log(teamData.team_name + "のscoreは" + teamData.score + "のatkは" + teamData.Total_ATK + "のdefは" + teamData.Total_DEF);
         viewText2.text = teamData.team_name;
 
         //gameUIで計算するために値代入
@@ -109,6 +108,7 @@ public class TeamList : MonoBehaviour
         calc_deta.DP1=teamData.Total_DEF;
     }
 
+    //選手、チームオブジェクトの初期化
     public void DeletePlayer1()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("player1");

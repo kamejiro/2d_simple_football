@@ -6,15 +6,17 @@ using UnityEngine.UI;
 
 public class TeamList2 : MonoBehaviour
 {
-    // CSV�t�@�C���̃p�X���w��
+    //CSVファイルへのパス
     private string csvFilePath;
 
-    // CSV�f�[�^���i�[���郊�X�g
+    //ファイルを読み込む際に使用するリスト
     private List<List<string>> csvData = new List<List<string>>();
 
+    //プレハブ
     public GameObject player;
     public GameObject team;
 
+    //ドロップダウンとテキスト
     [SerializeField] private Dropdown dropdown;
     [SerializeField] Text viewText;
     [SerializeField] Text viewText2;
@@ -29,37 +31,37 @@ public class TeamList2 : MonoBehaviour
         csvFilePath = "assets/scripts/PlayerData/" + dropdown.options[dropdown.value].text + ".csv";
         Debug.Log(csvFilePath);
 
-        // CSV�t�@�C���ǂݍ���
         ReadCSVFile();
+
         AttachCSVData();
     }
 
+    //CSVファイルを読み込む
     void ReadCSVFile()
     {
         csvData.Clear();
-        // CSV�t�@�C�������݂��邩�m�F
+        //ファイルが存在したら
         if (File.Exists(csvFilePath))
         {
-            // CSV�t�@�C����ǂݍ���
+            //1行ずつ読み込む
             using (StreamReader reader = new StreamReader(csvFilePath))
             {
                 while (!reader.EndOfStream)
                 {
-                    // ��s�ǂݍ��݁A�J���}�ŕ������ă��X�g�ɒǉ�
+                    //コンマ、行ごとにリストに追加
                     string line = reader.ReadLine();
                     List<string> row = new List<string>(line.Split(','));
-
-                    // �ǂݍ��񂾍s�����X�g�ɒǉ�
                     csvData.Add(row);
                 }
             }
         }
         else
         {
-            Debug.LogError("CSV�t�@�C����������܂���: " + csvFilePath);
+            Debug.LogError("CSVファイルの読み込みに失敗しました" + csvFilePath);
         }
     }
 
+    //オブジェクトにCSVファイルを割り当てる
     void AttachCSVData()
     {
         DeletePlayer2();
@@ -88,12 +90,12 @@ public class TeamList2 : MonoBehaviour
             teamData.Total_ATK += int.Parse(row[2]);
             teamData.Total_DEF += int.Parse(row[3]);
 
-            //�v���C���[�o��
-            Debug.Log(monsterData.player_name + "��pos��" + monsterData.position + "��atk��" + monsterData.ATK + "��def��" + monsterData.DEF);
+            //選手ログの出力
+            Debug.Log(monsterData.player_name + "のposは" + monsterData.position + "のatkは" + monsterData.ATK + "のdefは" + monsterData.DEF);
             viewText.text += monsterData.position + " " + monsterData.player_name + "\n";
         }
-        //�`�[���o��
-        Debug.Log(teamData.team_name + "��score��" + teamData.score + "��atk��" + teamData.Total_ATK + "��def��" + teamData.Total_DEF);
+        //チームログの出力
+        Debug.Log(teamData.team_name + "のscoreは" + teamData.score + "のatkは" + teamData.Total_ATK + "のdefは" + teamData.Total_DEF);
         viewText2.text = teamData.team_name;
 
         //gameUIで計算するために値代入
@@ -102,6 +104,7 @@ public class TeamList2 : MonoBehaviour
         calc_deta.DP2=teamData.Total_DEF;
     }
 
+    //選手、チームオブジェクトの初期化
     public void DeletePlayer2()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("player2");
