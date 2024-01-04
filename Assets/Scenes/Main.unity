@@ -133,11 +133,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4741454550077811408, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Name
-      value: TestButton1
+      value: AttackingButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 554156009}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: STEP_Atack_Run
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game_system, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8948889880947448404, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Text
-      value: "\u672A\u5B9A"
+      value: Attacking
       objectReference: {fileID: 0}
     - target: {fileID: 9107060477722241364, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Pivot.x
@@ -691,11 +719,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4741454550077811408, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Name
-      value: TestButton2
+      value: DeffensiveButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 554156009}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: STEP_Deffense_Run
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game_system, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8948889880947448404, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Text
-      value: "\u672A\u5B9A"
+      value: Deffensive
       objectReference: {fileID: 0}
     - target: {fileID: 9107060477722241364, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
       propertyPath: m_Pivot.x
@@ -1699,6 +1755,8 @@ MonoBehaviour:
   nextButton_text: {fileID: 1897780641}
   gamescore_resultMenu: {fileID: 1221468204}
   nextButton: {fileID: 4224121596689185978}
+  attackButton: {fileID: 2073222833}
+  defenseButton: {fileID: 1087373890}
   gameUI: {fileID: 554156007}
   result_menu: {fileID: 45189288}
   soccer_ball: {fileID: 1373791300}
@@ -2277,7 +2335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.data[3].m_Text
@@ -2286,6 +2344,14 @@ PrefabInstance:
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.data[4].m_Text
       value: ManchesterUnited
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[5].m_Text
+      value: TottenhamHotspur
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[6].m_Text
+      value: Chealsea
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2759,6 +2825,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937017724}
   m_CullTransparentMesh: 1
+--- !u!114 &1087373890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+  m_PrefabInstance: {fileID: 215924154}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1105989906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5288,6 +5365,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2073222833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5684437753948100713, guid: 96adc609b7fc44e47b3d20e2d8b3c72b, type: 3}
+  m_PrefabInstance: {fileID: 14347947}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079717101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6188,7 +6276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.data[3].m_Text
@@ -6197,6 +6285,14 @@ PrefabInstance:
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_Options.m_Options.Array.data[4].m_Text
       value: ManchesterUnited
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[5].m_Text
+      value: TottenhamHotspur
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[6].m_Text
+      value: Chealsea
       objectReference: {fileID: 0}
     - target: {fileID: 9018490485288696744, guid: bcf1849a5f8248341a290d23e1728d6b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

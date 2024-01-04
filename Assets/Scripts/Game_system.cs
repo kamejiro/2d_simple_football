@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Game_system : MonoBehaviour
 {
     public Text gametime,gamescore,nextButton_text,gamescore_resultMenu;
-    public Button nextButton;
+    public Button nextButton, attackButton, defenseButton;
     public GameObject gameUI, result_menu;
     public RectTransform soccer_ball;
     public Image goalCelebration;
@@ -54,6 +54,9 @@ public class Game_system : MonoBehaviour
         dp1 = 100;
         ap2 = 100;
         dp2 = 100;
+
+        attackButton.interactable = false;
+        defenseButton.interactable = false;
     }
 
     public void ballPosi(int __bollpositon){
@@ -187,6 +190,8 @@ public class Game_system : MonoBehaviour
         
         if (temp_step==0){
             Apdp_Input();
+            attackButton.interactable = true;
+            defenseButton.interactable = true;      
         }
 
         if (temp_step<15){
@@ -215,6 +220,79 @@ public class Game_system : MonoBehaviour
             DrawResultMember();
         }
     }
+
+        public void STEP_Atack_Run()
+    {
+        StartCoroutine(ClickSound());
+        
+        ap1 = (int)Mathf.Round(ap1 * 1.1f);
+        dp1 = (int)Mathf.Round(dp1 * 0.8f);
+
+        if (temp_step<15){
+        bp=step_calc(bp, ap1, dp1, ap2, dp2);
+        temp_step=++temp_step;
+        string temp_time=(temp_step*6).ToString();
+
+        gametime.text= temp_time+ "分経過";
+
+        }
+        else if (temp_step==15){
+            StartCoroutine(ResultSound());
+            temp_step=++temp_step;
+            gametime.text= "試合終了！";
+            nextButton_text.text="結果へ";
+        }
+        else{
+            string temp_score1=score1.ToString();
+            string temp_score2=score2.ToString();
+            //得点表示への反映
+            gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
+            Debug.Log("結果表示");
+            gameUI.SetActive(false);
+            result_menu.SetActive(true);
+            ResetGameVaruable();
+            DrawResultMember();
+        }
+    }
+
+        public void STEP_Deffense_Run()
+    {
+        StartCoroutine(ClickSound());
+        
+        ap1 = (int)Mathf.Round(ap1 * 0.8f);
+        dp1 = (int)Mathf.Round(dp1 * 1.1f);
+        
+        if (temp_step<15){
+        bp=step_calc(bp, ap1, dp1, ap2, dp2);
+        temp_step=++temp_step;
+        string temp_time=(temp_step*6).ToString();
+
+        gametime.text= temp_time+ "分経過";
+
+        }
+        else if (temp_step==15){
+            StartCoroutine(ResultSound());
+            temp_step=++temp_step;
+            gametime.text= "試合終了！";
+            nextButton_text.text="結果へ";
+        }
+        else{
+            string temp_score1=score1.ToString();
+            string temp_score2=score2.ToString();
+            //得点表示への反映
+            gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
+            Debug.Log("結果表示");
+            gameUI.SetActive(false);
+            result_menu.SetActive(true);
+            ResetGameVaruable();
+            DrawResultMember();
+        }
+    }
+
+
+
+
+
     public void DrawResultMember()
     {
         teamName.text = teamName2.text;
