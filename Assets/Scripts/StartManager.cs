@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
@@ -9,39 +9,60 @@ public class StartManager : MonoBehaviour
     public GameObject startUI;
     public GameObject gameUI;
     public GameObject resultUI;
-    private AudioSource asrc;
+    public GameObject totalResultUI;
     [SerializeField] Dropdown dropdown;
     [SerializeField] Dropdown dropdown2;
     [SerializeField] Text message;
-    
+
+    //éŸ³å£°
+    [SerializeField] private AudioSource asrc;
+    [SerializeField] private AudioClip click_sound;
+    [SerializeField] private AudioClip start_sound;
 
     private void Start()
     {
         gameUI.SetActive(false);
         resultUI.SetActive(false);
+        totalResultUI.SetActive(false);
         asrc = GetComponent<AudioSource>();
 
     }
 
     IEnumerator StartButton()
     {
-        //‰¹‚ğ–Â‚ç‚·ˆ—
-        asrc.PlayOneShot(asrc.clip);
+        //éŸ³ã‚’é³´ã‚‰ã™å‡¦ç†
+        asrc.PlayOneShot(start_sound);
         yield return new WaitForSeconds(0.1f);
-        //ƒV[ƒ“‚Ì‘JˆÚ
+        //ã‚·ãƒ¼ãƒ³ã®é·ç§»
         gameUI.SetActive(true);
         startUI.SetActive(false);
     }
+
+    IEnumerator TotalResultButton()
+    {
+        //éŸ³ã‚’é³´ã‚‰ã™å‡¦ç†
+        asrc.PlayOneShot(click_sound);
+        yield return new WaitForSeconds(0.1f);
+        //ã‚·ãƒ¼ãƒ³ã®é·ç§»
+        startUI.SetActive(false);
+        totalResultUI.SetActive(true);
+    }
     public void OnClickStart()
     {
-        if ((dropdown.options[dropdown.value].text=="‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢") || (dropdown2.options[dropdown2.value].text == "‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢"))
+        if ((dropdown.options[dropdown.value].text=="é¸æŠã—ã¦ãã ã•ã„") || (dropdown2.options[dropdown2.value].text == "é¸æŠã—ã¦ãã ã•ã„"))
         {
-            message.text = "ƒ`[ƒ€‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢";
+            message.text = "ãƒãƒ¼ãƒ ã‚’é¸æŠã—ã¦ãã ã•ã„";
         }
         else
         {
             StartCoroutine("StartButton");
         }
+
+    }
+
+    public void OnClickTotalResult()
+    {
+        StartCoroutine("TotalResultButton");
 
     }
 

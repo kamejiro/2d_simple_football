@@ -231,6 +231,7 @@ public class Game_system : MonoBehaviour
         score1 = 0;
         score2 = 0;
         gametime.text = "試合開始";
+        nextButton_text.text = "next";
         gamescore.text = score1 + " - " + score2;
         Debug.Log("現在のturn" + turn + "\n");
         Debug.Log("現在のtemp_step" + temp_step + "\n");
