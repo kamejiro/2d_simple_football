@@ -2126,7 +2126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2162,7 +2162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 150
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1228885752557000585, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2184,6 +2184,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Liverpool\u3000\u3000\u3000 0\u3000\u3000\u3000\u3000\u3000\u30000\u3000\u3000\u3000  
         \u3000\u3000\u30000"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3694,6 +3698,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396804924}
   m_CullTransparentMesh: 1
+--- !u!114 &1397269430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5926732909042562940, guid: d9c0e0aeae4bba248a0f9df3488ef330, type: 3}
+  m_PrefabInstance: {fileID: 624794354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1427789709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5346,8 +5361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0d881d4cd021742a2d710b47fc51ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teams: []
   startUI: {fileID: 1895805954}
   totalResultUI: {fileID: 693991037}
+  totalResultText: {fileID: 1397269430}
   asrc: {fileID: 2068691221}
   click_sound: {fileID: 8300000, guid: b5daf06e1bb80c9439d8eb199d2faacb, type: 3}
 --- !u!4 &2068691223

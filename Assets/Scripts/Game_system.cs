@@ -289,10 +289,6 @@ public class Game_system : MonoBehaviour
         }
     }
 
-
-
-
-
     public void DrawResultMember()
     {
         teamName.text = teamName2.text;
