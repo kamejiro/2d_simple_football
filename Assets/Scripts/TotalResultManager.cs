@@ -36,8 +36,12 @@ public class TotalResultManager : MonoBehaviour
     {
         //音声の割り当て
         asrc = GetComponent<AudioSource>();
+    }
 
+    public void ActiveResult()
+    {
         //データを読み込んでテキストを更新
+        totalResultText.text = "";
         TestTeamData t = new TestTeamData();
         teams = TestListMaker();
         foreach (var team in teams)
@@ -45,7 +49,6 @@ public class TotalResultManager : MonoBehaviour
             Debug.Log(team);
             DrawText(LoadTeamData(team));
         }
-
     }
 
     IEnumerator StartAction()

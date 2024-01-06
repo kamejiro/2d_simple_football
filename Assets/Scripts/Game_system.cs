@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -214,6 +215,7 @@ public class Game_system : MonoBehaviour
             //得点表示への反映
             gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
             Debug.Log("結果表示");
+            JudgeGameResult();
             gameUI.SetActive(false);
             result_menu.SetActive(true);
             ResetGameVaruable();
@@ -248,6 +250,7 @@ public class Game_system : MonoBehaviour
             //得点表示への反映
             gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
             Debug.Log("結果表示");
+            JudgeGameResult();
             gameUI.SetActive(false);
             result_menu.SetActive(true);
             ResetGameVaruable();
@@ -276,12 +279,14 @@ public class Game_system : MonoBehaviour
             gametime.text= "試合終了！";
             nextButton_text.text="結果へ";
         }
-        else{
+        else
+        {
             string temp_score1=score1.ToString();
             string temp_score2=score2.ToString();
             //得点表示への反映
             gamescore_resultMenu.text= temp_score1 + " - " + temp_score2;
             Debug.Log("結果表示");
+            JudgeGameResult();
             gameUI.SetActive(false);
             result_menu.SetActive(true);
             ResetGameVaruable();
@@ -312,6 +317,39 @@ public class Game_system : MonoBehaviour
         Debug.Log("現在のbp" + bp + "\n");
         Debug.Log("現在のscore1は" + score1 + "\n");
         Debug.Log("現在のscore2は" + score2 + "\n");
+    }
+
+    public void JudgeGameResult()
+    {
+        if (score1 > score2)
+        {
+            Debug.Log(teamName2.text + "の勝ち"+ teamName4.text + "の負け");
+            int winner = PlayerPrefs.GetInt(teamName2.text + "WinCount") + 1;
+            int loser = PlayerPrefs.GetInt(teamName4.text + "LoseCount") + 1;
+            PlayerPrefs.SetInt(teamName2.text + "WinCount", winner);
+            PlayerPrefs.SetInt(teamName4.text + "LoseCount", loser);
+            PlayerPrefs.Save();
+        }
+        else if (score1 < score2)
+        {
+            Debug.Log(teamName4.text + "の勝ち" + teamName2.text + "の負け");
+            int winner = PlayerPrefs.GetInt(teamName2.text + "WinCount") + 1;
+            int loser = PlayerPrefs.GetInt(teamName4.text + "LoseCount") + 1;
+            PlayerPrefs.SetInt(teamName2.text + "WinCount", winner);
+            PlayerPrefs.SetInt(teamName4.text + "LoseCount", loser);
+            PlayerPrefs.Save();
+        }
+        else if(score1==score2)
+        {
+            Debug.Log(teamName2.text + "と" + teamName4.text+"は引き分け");
+            int drawer1 = PlayerPrefs.GetInt(teamName2.text + "DrawCount") + 1;
+            int drawer2 = PlayerPrefs.GetInt(teamName4.text + "DrawCount") + 1;
+            PlayerPrefs.SetInt(teamName2.text + "DrawCount", drawer1);
+            PlayerPrefs.SetInt(teamName4.text + "DrawCount", drawer2);
+            PlayerPrefs.Save();
+        }
+
+
     }
 
 }
