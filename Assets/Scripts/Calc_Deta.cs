@@ -33,4 +33,15 @@ public class Calc_Deta : MonoBehaviour
         get { return dp2; }
         set { dp2 = value; }
     }
+
+
+    private string[,] pleyer_Deta = new string[22,4];
+
+    // プロパティの定義
+    public string this[int row, int col]
+    {
+        get { return pleyer_Deta[row, col]; }
+        set { pleyer_Deta[row, col] = value; }
+    }
+
 }

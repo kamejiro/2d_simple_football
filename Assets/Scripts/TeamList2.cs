@@ -34,6 +34,8 @@ public class TeamList2 : MonoBehaviour
         ReadCSVFile();
 
         AttachCSVData();
+
+        InputCsvToCalc_deta2();
     }
 
     //CSVファイルを読み込む
@@ -104,6 +106,9 @@ public class TeamList2 : MonoBehaviour
         calc_deta.DP2=teamData.Total_DEF;
     }
 
+
+
+
     //選手、チームオブジェクトの初期化
     public void DeletePlayer2()
     {
@@ -113,6 +118,26 @@ public class TeamList2 : MonoBehaviour
         foreach (GameObject player in players)
         {
             Destroy(player);
+        }
+    }
+
+    public void InputCsvToCalc_deta2(){
+        //Script: Calc_detaを用いる
+        Calc_Deta definedeta = GetComponent<Calc_Deta>();
+        int _row =11;
+
+        //指定したcsvを開く
+        using (StreamReader sr = new StreamReader(csvFilePath)) {
+            while (!sr.EndOfStream) {
+                string line = sr.ReadLine();
+                string[] parts = line.Split(',');
+                // 配列 a の先頭から parts の要素をコピー
+                for (int _col = 0; _col < parts.Length; _col++) {
+                    definedeta[_row,_col] = parts[_col];
+                    //Debug.Log(definedeta[_row,_col] );
+                }
+                _row++;
+            }
         }
     }
 

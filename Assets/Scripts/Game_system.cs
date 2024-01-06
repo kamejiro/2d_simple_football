@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Game_system : MonoBehaviour
 {
-    public Text gametime,gamescore,nextButton_text,gamescore_resultMenu;
+    public Text gametime,gamescore,nextButton_text,gamescore_resultMenu,holderName;
     public Button nextButton, attackButton, defenseButton;
     public GameObject gameUI, result_menu;
     public RectTransform soccer_ball;
@@ -221,9 +221,11 @@ public class Game_system : MonoBehaviour
             ResetGameVaruable();
             DrawResultMember();
         }
+
+        holderName.text=Ball_Holder();
     }
 
-        public void STEP_Atack_Run()
+    public void STEP_Atack_Run()
     {
         StartCoroutine(ClickSound());
         
@@ -258,7 +260,7 @@ public class Game_system : MonoBehaviour
         }
     }
 
-        public void STEP_Deffense_Run()
+    public void STEP_Deffense_Run()
     {
         StartCoroutine(ClickSound());
         
@@ -293,6 +295,29 @@ public class Game_system : MonoBehaviour
             DrawResultMember();
         }
     }
+
+    public string Ball_Holder(){
+        string holderName;
+        GameObject obj = transform.parent.gameObject;
+        Calc_Deta definedeta = obj.GetComponent<Calc_Deta>();
+        int holder_index=1;//1～11がteam1のGK～ST、12～22がTeam2のGK～ST
+        if (turn==1){
+            holder_index=11;
+        }
+        //1～100乱数発生
+        System.Random random = new System.Random();
+        int randomNumber = random.Next(100);
+        int quotient = randomNumber / 10;//商
+        int remainder = randomNumber % 10;
+        Debug.Log("乱数の商は"+quotient + ",余りは"+remainder);
+        holder_index=holder_index+quotient;
+        holderName= definedeta[holder_index,0];
+        return holderName;
+    }
+
+
+
+
 
     public void DrawResultMember()
     {
