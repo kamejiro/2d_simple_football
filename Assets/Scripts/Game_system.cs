@@ -358,10 +358,10 @@ public class Game_system : MonoBehaviour
         else if (score1 < score2)
         {
             Debug.Log(teamName4.text + "の勝ち" + teamName2.text + "の負け");
-            int winner = PlayerPrefs.GetInt(teamName2.text + "WinCount") + 1;
-            int loser = PlayerPrefs.GetInt(teamName4.text + "LoseCount") + 1;
-            PlayerPrefs.SetInt(teamName2.text + "WinCount", winner);
-            PlayerPrefs.SetInt(teamName4.text + "LoseCount", loser);
+            int winner = PlayerPrefs.GetInt(teamName4.text + "WinCount") + 1;
+            int loser = PlayerPrefs.GetInt(teamName2.text + "LoseCount") + 1;
+            PlayerPrefs.SetInt(teamName4.text + "WinCount", winner);
+            PlayerPrefs.SetInt(teamName2.text + "LoseCount", loser);
             PlayerPrefs.Save();
         }
         else if(score1==score2)

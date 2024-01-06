@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEditor.Experimental.RestService;
+using System.Reflection;
 
 public class TotalResultManager : MonoBehaviour
 {
@@ -46,11 +47,11 @@ public class TotalResultManager : MonoBehaviour
         teams = TestListMaker();
         foreach (var team in teams)
         {
-            Debug.Log(team);
             DrawText(LoadTeamData(team));
         }
     }
 
+    //Homeボタンを押したときの動作
     IEnumerator StartAction()
     {
         //音を鳴らす処理
@@ -61,10 +62,34 @@ public class TotalResultManager : MonoBehaviour
         startUI.SetActive(true);
     }
 
+    //
+    IEnumerator ResetAction()
+    {
+        //音を鳴らす処理
+        asrc.PlayOneShot(click_sound);
+        yield return new WaitForSeconds(0.1f);
+        //リセット機能
+        Debug.Log("リセットボタンが押されました");
+        teams = TestListMaker();
+        foreach (var team in teams)
+        {
+            PlayerPrefs.SetInt(team + "WinCount", 0);
+            PlayerPrefs.SetInt(team + "DrawCount", 0);
+            PlayerPrefs.SetInt(team + "LoseCount", 0);
+        }
+        ActiveResult();
+    }
+
     //Home画面に戻る
     public void OnClickStart()
     {
         StartCoroutine("StartAction");
+    }
+
+    //Resetボタン
+    public void OnClickReset()
+    {
+        StartCoroutine("ResetAction");
     }
 
     //テキストの読み込み
@@ -92,6 +117,23 @@ public class TotalResultManager : MonoBehaviour
         list.Add("Liverpool");
         list.Add("ManchesterCity");
         list.Add("AstonVilla");
+        list.Add("ManchesterUnited");
+        list.Add("Arsenal");
+        list.Add("TottenhamHotspur");
+        list.Add("Westham");
+        list.Add("Brighton");
+        list.Add("NewCastle");
+        list.Add("Chelsea");
+        list.Add("Wolves");
+        list.Add("Bournemouth");
+        list.Add("Fulham");
+        list.Add("CrystalPalace");
+        list.Add("NottinghamForest");
+        list.Add("Brentford");
+        list.Add("Everton");
+        list.Add("Luton");
+        list.Add("Burnley");
+        list.Add("SheffieldUnited");
 
         return list;
     }
